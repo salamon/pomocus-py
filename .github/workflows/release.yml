@@ -36,6 +36,7 @@ jobs:
         run: python -m pip install --upgrade pip pyinstaller
 
       - name: Build (PyInstaller)
+        shell: bash
         run: |
           if [ "$RUNNER_OS" == "macOS" ]; then
             pyinstaller --clean --noconfirm --name pomocus --windowed --icon=assets/icon.icns pomocus_app.py
