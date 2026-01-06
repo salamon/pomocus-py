@@ -1,0 +1,10 @@
+# Pomocus - Pomodoro Timer
+# No external dependencies required!
+# Uses Python's built-in libraries:
+# - tkinter (GUI)
+# - winsound (Windows notifications)
+# - json (statistics storage)
+# - datetime (time tracking)
+
+# Python version requirement
+# python>=3.7
