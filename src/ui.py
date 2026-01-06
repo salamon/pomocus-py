@@ -422,7 +422,7 @@ class PomocusUI:
         ToolTip(self.settings_btn, "Settings")
     
         # App Title (Centered Top)
-        self.title_label = tk.Label(self.root, text="Pomofocus", font=('Segoe UI', 20, 'bold'),
+        self.title_label = tk.Label(self.root, text="Pomocus", font=('Segoe UI', 20, 'bold'),
                                    bg=bg, fg=self.COLORS['work'])
         self.title_label.place(relx=0.5, y=42, anchor='center')
 
@@ -518,7 +518,6 @@ class PomocusUI:
         if self.logic:
             self._update_display()
 
-    
 
     
     def _on_resize(self, event):
@@ -595,10 +594,8 @@ class PomocusUI:
         self.start_button.config(text="▶")
         self._play_notification()
         self._flash_window()
-        
-        # Alerts removed as requested
-        # UI automatically updates via _on_mode_change
-    
+
+
     def _on_mode_change(self, mode: str):
         """Called when mode changes"""
         mode_config = {
@@ -606,13 +603,18 @@ class PomocusUI:
             'short_break': ("SHORT BREAK", self.COLORS['short_break']),
             'long_break': ("LONG BREAK", self.COLORS['long_break'])
         }
-        
+
         text, color = mode_config.get(mode, ("FOCUS TIME", self.COLORS['work']))
         self.mode_label.config(text=text, fg=color)
         self.start_button.config(fg=color, activeforeground=color)
         self.canvas.itemconfig(self.progress_arc, outline=color)
-        
+        # Add these lines:
+        if self.title_label:
+            self.title_label.config(fg=color)
+
         self._update_display()
+
+
     
     def _update_display(self):
         """Update all display elements"""

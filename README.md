@@ -3,13 +3,16 @@
 Pomocus is yet another Pomodoro Focus Timer, built with Python and `tkinter`.
 Why should you use it? I don't know, but it's free, open source and I like it. It's also simple, just the time and its settings.
 
+## Download
+
+You can download the latest release from the [Releases](https://github.com/your-username/pomocus-py/releases) page.
+
 ## Screenshots
 
-| Dark theme | | | |
-|------------|---|---|---|
-| <img src="screenshots/screen-dark-1.png"> | <img src="screenshots/screen-dark-2.png"> | <img src="screenshots/screen-dark-3.png"> | <img src="screenshots/screen-dark-4.png"> |
-| Light theme | | | |
-|------------|---|---|---|
+| Dark theme                                 | | | |
+|--------------------------------------------|---|---|---|
+| <img src="screenshots/screen-dark-1.png">  | <img src="screenshots/screen-dark-2.png"> | <img src="screenshots/screen-dark-3.png"> | <img src="screenshots/screen-dark-4.png"> |
+| Light theme                                | | | |
 | <img src="screenshots/screen-light-1.png"> | <img src="screenshots/screen-light-2.png"> | <img src="screenshots/screen-light-3.png"> | <img src="screenshots/screen-light-4.png"> |
 
  
@@ -46,13 +49,14 @@ If you installed Python via Homebrew and `tkinter` is missing, install a python 
 There are no third-party dependencies.
  
 ## Run
- 
+
 From the project folder:
- 
+
 ```bash
-cd src
-python pomocus.py
+python pomocus_app.py
 ```
+
+(If you prefer the old way, you can still run `cd src && python pomocus.py`.)
 
 ## Build (PyInstaller)
 
@@ -69,16 +73,6 @@ pyinstaller --clean --noconfirm --name pomocus --windowed pomocus_app.py
 ```
 
 The output will be under `dist/`.
-
-## Release
-
-To create a GitHub Release with prebuilt artifacts, push a version tag like:
-
-```bash
-git tag v1.0.0
-git push origin v1.0.0
-```
-
 
 ## Usage
  

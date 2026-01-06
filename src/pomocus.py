@@ -91,8 +91,8 @@ class PomodoroLogic:
         
         if self.on_complete:
             self.on_complete(completed_mode)
-            
-        # Specific request: Auto start next timer
+
+        # Auto start next timer
         if self.auto_start:
             self.start()
     
@@ -120,8 +120,8 @@ class PomodoroLogic:
         self.long_break_duration = long_min
         self.long_break_interval = interval
         self.auto_start = auto_start
-        
-        # specific request: reset app flow
+
+        # reset app flow
         self.pomodoros_completed = 0
         self.is_running = False
         self.switch_mode('work')
