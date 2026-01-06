@@ -4,6 +4,7 @@ Main application with core logic
 """
 
 import os
+import sys
 import tkinter as tk
 from typing import Callable, Optional
 
@@ -152,7 +153,12 @@ def main():
     
     # Set window icon
     try:
-        icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'assets', 'icon.ico')
+        # Try platform-specific icon formats
+        if sys.platform == 'darwin':  # macOS
+            icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'assets', 'icon.icns')
+        else:  # Windows and Linux
+            icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'assets', 'icon.ico')
+        
         if os.path.exists(icon_path):
             root.iconbitmap(icon_path)
     except Exception:

@@ -11,7 +11,10 @@ a = Analysis(
     ['pomocus_app.py'],
     pathex=[],
     binaries=[],
-    datas=[('assets/icon.ico', 'assets')],
+    datas=[
+        ('assets/icon.ico', 'assets'),
+        ('assets/icon.icns', 'assets')
+    ],
     hiddenimports=hiddenimports,
     hookspath=[],
     hooksconfig={},
