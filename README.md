@@ -7,7 +7,16 @@
 
 Pomocus is yet another Pomodoro Focus Timer, built with Python and `tkinter`.
 
-Why should you use it? I don't know, but it's free, open source and I like it. It's also simple, just the time and its settings.
+Why should you use this and not others? I don't know, but it's free, open source and simple. 
+It's just the timer and its settings. No internet connection required, no ads, no tracking, no data collection, no third-party dependencies.
+The only extra are the themes to avoid the eternal light vs dark war.
+
+> *Disclaimer*: I made this project to test different AI Agents and GitHub Actions with crossplatform PyInstaller.
+It was interesting to see how a few hours of work with AI can yield a working/deployed proof of concept.
+Of course, despite my efforts to fix/refactor allucinations, the code can be further improved before production/official release. 
+IMO, this might be the best usage for AI: create a functional POC and then revise/improve it manually (human has the final answer)
+
+
 
 ## Download
 
