@@ -1,0 +1,85 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.11']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install tkinter (Ubuntu)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y python3-tk
+
+      - name: Get version from tag
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
+      - name: Install build deps
+        run: python -m pip install --upgrade pip pyinstaller
+
+      - name: Build (PyInstaller)
+        run: pyinstaller --clean --noconfirm --name pomocus --windowed pomocus_app.py
+
+      - name: Package artifact (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          if (Test-Path dist\pomocus) {
+            Compress-Archive -Path dist\pomocus\* -DestinationPath pomocus-${{ env.VERSION }}-windows-x64.zip
+          } elseif (Test-Path dist\pomocus.exe) {
+            Compress-Archive -Path dist\pomocus.exe -DestinationPath pomocus-${{ env.VERSION }}-windows-x64.zip
+          } else {
+            throw "PyInstaller output not found under dist/"
+          }
+
+      - name: Package artifact (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          cd dist
+          if [ -d "pomocus.app" ]; then
+            zip -r ../pomocus-${{ env.VERSION }}-macos-x64.zip pomocus.app
+          elif [ -d "pomocus" ]; then
+            zip -r ../pomocus-${{ env.VERSION }}-macos-x64.zip pomocus
+          elif [ -f "pomocus" ]; then
+            zip -r ../pomocus-${{ env.VERSION }}-macos-x64.zip pomocus
+          else
+            echo "PyInstaller output not found under dist/" && exit 1
+          fi
+
+      - name: Package artifact (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          cd dist
+          if [ -d "pomocus" ]; then
+            zip -r ../pomocus-${{ env.VERSION }}-linux-x64.zip pomocus
+          elif [ -f "pomocus" ]; then
+            zip -r ../pomocus-${{ env.VERSION }}-linux-x64.zip pomocus
+          else
+            echo "PyInstaller output not found under dist/" && exit 1
+          fi
+
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            pomocus-${{ env.VERSION }}-windows-x64.zip
+            pomocus-${{ env.VERSION }}-macos-x64.zip
+            pomocus-${{ env.VERSION }}-linux-x64.zip
