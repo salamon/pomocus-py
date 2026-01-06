@@ -1,7 +1,17 @@
 # pomocus-py
  
 Pomocus is yet another Pomodoro Focus Timer, built with Python and `tkinter`.
-Why should you use it? I don't know, but it's free, open source and I like it. It's also simple, just the time and its settings. 
+Why should you use it? I don't know, but it's free, open source and I like it. It's also simple, just the time and its settings.
+
+## Screenshots
+
+| Dark theme | | | |
+|------------|---|---|---|
+| <img src="screenshots/screen-dark-1.png"> | <img src="screenshots/screen-dark-2.png"> | <img src="screenshots/screen-dark-3.png"> | <img src="screenshots/screen-dark-4.png"> |
+| Light theme | | | |
+|------------|---|---|---|
+| <img src="screenshots/screen-light-1.png"> | <img src="screenshots/screen-light-2.png"> | <img src="screenshots/screen-light-3.png"> | <img src="screenshots/screen-light-4.png"> |
+
  
 ## Features
  
@@ -44,14 +54,31 @@ cd src
 python pomocus.py
 ```
 
-## Screenshots
+## Build (PyInstaller)
 
-| Dark theme | | | |
-|------------|---|---|---|
-| <img src="screenshots/screen-dark-1.png"> | <img src="screenshots/screen-dark-2.png"> | <img src="screenshots/screen-dark-3.png"> | <img src="screenshots/screen-dark-4.png"> |
-| Light theme | | | |
-|------------|---|---|---|
-| <img src="screenshots/screen-light-1.png"> | <img src="screenshots/screen-light-2.png"> | <img src="screenshots/screen-light-3.png"> | <img src="screenshots/screen-light-4.png"> |
+Install PyInstaller:
+
+```bash
+python -m pip install pyinstaller
+```
+
+Build a standalone executable:
+
+```bash
+pyinstaller --clean --noconfirm --name pomocus --windowed pomocus_app.py
+```
+
+The output will be under `dist/`.
+
+## Release
+
+To create a GitHub Release with prebuilt artifacts, push a version tag like:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
 
 ## Usage
  
@@ -73,3 +100,16 @@ Settings are saved to `pomocus_settings.json` in the project directory. It store
 - Theme mode
  
 If the file is missing or invalid, defaults are used.
+
+## Known issues
+
+- Notification sounds use `tkinter`'s `bell()` and may be muted depending on OS settings.
+- On Ubuntu/Debian, you may need `python3-tk` installed for `tkinter`.
+
+## Support
+
+If you find a bug or have a feature request, please open a GitHub issue.
+
+## License
+
+MIT (see `LICENSE`).

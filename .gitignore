@@ -1,6 +1,9 @@
 # Pomocus user data
-pomocus_stats.json
+pomocus_settings.json
 src/pomocus_settings.json
+
+# Media Releases
+media/
 
 # Python cache
 __pycache__/
@@ -27,9 +30,7 @@ wheels/
 *.egg
 
 # Virtual environments
-venv/
-ENV/
-env/
+.venv/
 
 # IDE
 .vscode/
@@ -41,4 +42,3 @@ env/
 # OS
 .DS_Store
 Thumbs.db
-/media
