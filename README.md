@@ -16,15 +16,6 @@ You can download the latest release from the [Releases](https://github.com/your-
 | <img src="screenshots/screen-light-1.png"> | <img src="screenshots/screen-light-2.png"> | <img src="screenshots/screen-light-3.png"> | <img src="screenshots/screen-light-4.png"> |
 
  
-## Features
- 
-- **Focus / short break / long break** cycle
-- **Configurable durations** (focus, short break, long break, long-break interval)
-- **Auto-start next timer** (optional)
-- **Sound effects** (optional)
-- **Light/Dark theme toggle**
-- **Skip phase** and **reset** controls (including reset the full flow)
- 
 ## Requirements
 
 - **Python 3.7+**
@@ -56,23 +47,15 @@ From the project folder:
 python pomocus_app.py
 ```
 
-(If you prefer the old way, you can still run `cd src && python pomocus.py`.)
-
-## Build (PyInstaller)
-
-Install PyInstaller:
-
-```bash
-python -m pip install pyinstaller
-```
-
-Build a standalone executable:
-
-```bash
-pyinstaller --clean --noconfirm --name pomocus --windowed pomocus_app.py
-```
-
-The output will be under `dist/`.
+## Features
+ 
+- **Focus / short break / long break** cycle
+- **Configurable durations** (focus, short break, long break, long-break interval)
+- **Auto-start next timer** (optional)
+- **Sound effects** (optional)
+- **Light/Dark theme toggle**
+- **Skip phase** and **reset** controls (including reset the full flow)
+ 
 
 ## Usage
  
