@@ -40,12 +40,12 @@ jobs:
         run: |
           if [ "$RUNNER_OS" == "macOS" ]; then
             if [ -f "assets/icon.icns" ]; then
-              pyinstaller --clean --noconfirm --name pomocus --windowed --icon=assets/icon.icns pomocus_app.py
+              pyinstaller --clean --noconfirm --paths src --name pomocus --windowed --icon=assets/icon.icns pomocus_app.py
             else
-              pyinstaller --clean --noconfirm --name pomocus --windowed pomocus_app.py
+              pyinstaller --clean --noconfirm --paths src --name pomocus --windowed pomocus_app.py
             fi
           else
-            pyinstaller --clean --noconfirm --name pomocus --windowed --icon=assets/icon.ico pomocus_app.py
+            pyinstaller --clean --noconfirm --paths src --name pomocus --windowed --icon=assets/icon.ico pomocus_app.py
           fi
 
       - name: Package artifact (Windows)

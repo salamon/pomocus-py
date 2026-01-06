@@ -9,12 +9,9 @@ hiddenimports += collect_submodules('tkinter')
 
 a = Analysis(
     ['pomocus_app.py'],
-    pathex=[],
+    pathex=['src'],
     binaries=[],
-    datas=[
-        ('assets/icon.ico', 'assets'),
-        ('assets/icon.icns', 'assets')
-    ],
+    datas=[],
     hiddenimports=hiddenimports,
     hookspath=[],
     hooksconfig={},
