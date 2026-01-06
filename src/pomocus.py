@@ -3,6 +3,7 @@ Pomocus - A Beautiful Pomodoro Timer for Windows
 Main application with core logic
 """
 
+import os
 import tkinter as tk
 from typing import Callable, Optional
 
@@ -148,6 +149,15 @@ class PomodoroLogic:
 def main():
     """Main entry point"""
     root = tk.Tk()
+    
+    # Set window icon
+    try:
+        icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'assets', 'icon.ico')
+        if os.path.exists(icon_path):
+            root.iconbitmap(icon_path)
+    except Exception:
+        # Fallback: continue without icon if there's any issue
+        pass
     
     # Load settings
     settings_manager = SettingsManager()

@@ -1,11 +1,17 @@
 # pomocus-py
- 
+
+![Build Status](https://img.shields.io/github/actions/workflow/status/salamon/pomocus-py/ci.yml?branch=main)
+![Release](https://img.shields.io/github/v/release/salamon/pomocus-py)
+![Downloads](https://img.shields.io/github/downloads/salamon/pomocus-py/total)
+![License](https://img.shields.io/github/license/salamon/pomocus-py)
+
 Pomocus is yet another Pomodoro Focus Timer, built with Python and `tkinter`.
+
 Why should you use it? I don't know, but it's free, open source and I like it. It's also simple, just the time and its settings.
 
 ## Download
 
-You can download the latest release from the [Releases](https://github.com/your-username/pomocus-py/releases) page.
+You can download the latest release from the [Releases](https://github.com/salamon/pomocus-py/releases) page.
 
 ## Screenshots
 

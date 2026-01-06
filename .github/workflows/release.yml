@@ -36,7 +36,7 @@ jobs:
         run: python -m pip install --upgrade pip pyinstaller
 
       - name: Build (PyInstaller)
-        run: pyinstaller --clean --noconfirm --name pomocus --windowed pomocus_app.py
+        run: pyinstaller --clean --noconfirm --name pomocus --windowed --icon=assets/icon.ico pomocus_app.py
 
       - name: Package artifact (Windows)
         if: runner.os == 'Windows'
