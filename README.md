@@ -3,7 +3,7 @@
 ![Build Status](https://img.shields.io/github/actions/workflow/status/salamon/pomocus-py/ci.yml?branch=main)
 ![Release](https://img.shields.io/github/v/release/salamon/pomocus-py)
 ![Downloads](https://img.shields.io/github/downloads/salamon/pomocus-py/total)
-![License](https://img.shields.io/github/license/salamon/pomocus-py)
+![License](https://img.shields.io/github/license/salamon/pomocus-py?label=license)
 
 Pomocus is yet another Pomodoro Focus Timer, built with Python and `tkinter`.
 
